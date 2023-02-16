@@ -46,6 +46,7 @@ if (isset($_POST['updateRow'])) {
     $name = $_POST['name'];
     $amount = $_POST['amount'];
     $update = mysqli_query($conn, "UPDATE budget SET budget_name='$name', budget_amount='$amount' WHERE budget_id='$id'");
+    header("Location: index.php?update=success");
 }
 
 //total

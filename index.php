@@ -17,7 +17,7 @@
     <!--NAV-->
     <nav class="navbar_container">
         <div class="navbar_wrapper">
-            <span class="logo"><a href="index.php" class='logoText'><i class="fas fa-dice-d20"></i> Logo</a></span>
+            <span class="logo"><a href="index.php" class='logoText'><i class="fas fa-dice-d20"></i> Budget</a></span>
             <?php if ($update == true) : ?>
                 <button class="createData">Update Expense</button>
             <?php else : ?>
@@ -28,7 +28,9 @@
     <!--!-NAV-->
 
     <!--Total-->
-    <h2 class="total">Total: $ <?php echo $total; ?></h2>
+    <div class="total_container">
+        <h2 class="total">Total: $<?php echo $total; ?></h2>
+    </div>
     <!--!-Total-->
 
     <!--Table-->
@@ -47,7 +49,7 @@
                 while ($row = $resault->fetch_assoc()) : ?>
                     <tr>
                         <td><?php echo ucfirst($row['budget_name']); ?></td>
-                        <td><?php echo ucfirst($row['budget_amount']); ?></td>
+                        <td>$<?php echo ucfirst($row['budget_amount']); ?></td>
                         <td>
                             <a href="index.php?edit=<?php echo $row['budget_id']; ?>" class='btnEdit'><i class="fas fa-edit"></i></a>
                             <a href="process.php?delete=<?php echo $row['budget_id']; ?>" class='btnDelete'><i class="fas fa-trash"></i></a>

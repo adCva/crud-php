@@ -4,165 +4,256 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 body {
-    background-color: #f5f5f5;
+    background-color: #ffffff;
+    color: #252422;
     font-family: 'Roboto', sans-serif;
+    position: relative;
 }
+
 a {
     text-decoration: none;
 }
 
-/*----navbar----*/
+/* ================== Navbar ================== */
 .navbar_container {
-    width: 100%;
-    color: var(--bg-color);
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
 }
 
 .navbar_wrapper {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
 }
+
 .logo {
-    font-size: 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: -0.3px;
 }
+
+@media (min-width: 768px) {
+    .logo {
+        font-size: 1.4rem;
+    }
+}
+
 .logo a {
-    color: #070707;
+    color: #111111;
+    transition: all 0.3s ease-in-out;
 }
+
+.logo a:hover {
+    color: #f7c679;
+}
+
 .logo i {
-    color: #34D1BF;
+    color: #f5bf69;
 }
+
+/* Add Expense Button */
 .createData {
-    background-color: transparent;
-    color: #070707;
+    background-color: #252422;
+    color: #f1faee;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 130px;
+    height: 35px;
     border: none;
+    border-radius: 5px;
     outline: none;
     cursor: pointer;
-    font-size: 1.4rem;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
+
 .createData:hover {
-    color: #2D2E2E;
-    transform: scale(0.9);
+    background-color: #457b9d;
 }
 
-/*----Total----*/
+
+
+/* ================== Total ================== */
+.total_container {
+    background-color: #252422;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+}
+
 .total {
-    margin: 2rem 0;
-    text-align: center;
+    color: #ffffff;
+    width: 90%;
+    max-width: 1200px;
+    font-size: 1rem;
 }
 
-/*----Table----*/
+@media (min-width: 768px) {
+    .total {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+/* ================== Table ================== */
 .bigLebowski {
-    width: 100%;
-    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
 }
+
 .table {
-    background-color: #0F0F0F;
-    color: #FBFBFB;
-    width: 100%;
+    width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-    border-spacing: 0 1.5rem;
-    padding: 2rem 4rem;
-    border-radius: 5px;
-    box-shadow: rgba(17, 12, 46, 0.2) 0px 48px 100px 0px;
+    text-align: left;
+    border-spacing: 0 1rem;
 }
+
 table thead {
-    font-size: 1.5rem;
-}
-tbody tr td {
-    font-size: 1.3rem;
-}
-tbody tr:nth-child(even) {
-    background-color: #E8E9EB;
-    color: #0F0F0F;
-}
-th {
-    border-bottom: 1px solid #FBFBFB;
+    font-size: 1.1rem;
     font-weight: bold;
+    letter-spacing: -0.3px;
+    text-transform: uppercase;
+    
 }
+
+tbody tr:nth-child(even) {
+    background-color: #ccc5b9;
+    color: #252422;
+}
+
+th {
+    padding-left: 0.5rem;
+    border-bottom: 1px solid #252422;
+}
+
 td {
-    height: 4rem;
+    height: 3rem;
+    padding-left: 0.5rem;
 }
+
 .btnEdit i {
-    color: #ADE25D;
+    color: #52b69a;
     margin-right: 1rem;
 }
+
 .btnDelete i {
     color: #DB504A;
 }
 
-/*----Popup----*/
+
+
+/* ================== PopUp ================== */
 .popUp {
-    background-color: #ECEBEB;
-    z-index: 3;
+    background-color: rgba(0, 0, 0, .5);
     position: fixed;
     top: 0;
-    right: 0;
     bottom: 0;
     left: 0;
-    display: none;
+    right: 0;
+    display: flex;
     justify-content: center;
     align-items: center;
+    transform: scale(0);
+    transition: all 0.3s ease-in-out;
+    transform-origin: 80% 5%;
 }
+
 .show {
-    display: flex;
+    transform: scale(1);
 }
+
 .popCard {
     background-color: #0F0F0F;
     color: #f5f5f5;
-    box-shadow: rgba(17, 12, 46, 0.2) 0px 48px 100px 0px;
-    border-radius: 5px;
-    padding: 4rem 3rem;
     position: relative;
+    padding: 2rem 1.5rem;
+    border-radius: 5px;
 }
-.popTitle {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-}
+
 .form-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
 }
+
 .form-group input {
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    padding: 0 0 0.5rem 0.5rem;
     border: none;
     outline: none;
-    background-color: transparent;
-    color: #f5f5f5;
-    font-size: 2rem;
     border-bottom: 1px solid #ffffff;
-    margin-top: 1rem;
 }
+
 .btn {
+    background-color: #ffffff;
     width: 100%;
-    padding: 0.5rem 0;
+    height: 35px;
+    font-size: 1.3rem;
+    margin-top: 2rem;
     border-radius: 5px;
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: #f5f5f5;
-    font-size: 1.3rem;
+    transition: all 0.3s ease-in-out;
 }
+
+.btn:hover {
+    background-color: #52b69a;
+    color: #ffffff;
+}
+
 .btnUpdate {
-    background-color: #ADE25D;
+    background-color: #ffffff;
 }
+
 .closePop {
+    background-color: #ffffff;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
     font-size: 1rem;
-    background-color: #f5f5f5;
-    padding: 0.1rem 0.2rem;
+    padding: 0.3rem 0.6rem;
     border: none;
+    border-radius: 50px;
     outline: none;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.closePop:hover {
+    background-color: #DB504A;
+    color: #252422;
+}
+
+@media (min-width: 768px) {
+    .popUp {
+        transform-origin: 90% 3%;
+    }
+
+    .popCard {
+        padding: 2.5rem 2rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .popUp {
+        transform-origin: 80% 1.7rem;
+    }
+
+    .popCard {
+        padding: 3rem 2.5rem;
+    }
+
+    .form-group input {
+        font-size: 1.45rem;
+    }
 }
